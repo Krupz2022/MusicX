@@ -3,21 +3,20 @@
     "version": ">= 3.5.2" ,
     "requireCommit": true
   },
-  "build": {
-    "development": {
-      "developmentClient": true,
-      "distribution": "internal"
-    },
-    "preview": {
-      "distribution": "internal"
-    },
-    "androidapk": {
-      "android": {
-        "buildType": "apk"
-      }
+    "build": {
+      "preview": {
+        "android": {
+          "buildType": "apk"
+        }
+      },
+      "preview2": {
+        "android": {
+          "gradleCommand": ":app:assembleRelease"
+        }
+      },
+      "preview3": {
+        "developmentClient": true
+      },
+      "production": {}
     }
-  },
-  "submit": {
-    "production": {}
   }
-}
