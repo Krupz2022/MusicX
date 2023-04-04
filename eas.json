@@ -11,7 +11,7 @@
     "preview": {
       "distribution": "internal"
     },
-    "production": {
+    "androidapk": {
       "android": {
         "buildType": "apk"
       }
