@@ -1,0 +1,32 @@
+# This "input" configures a global authorization rule to enable public access to
+# all models in this schema. Learn more about authorization rules here: https://docs.amplify.aws/cli/graphql/authorization-rules
+input AMPLIFY { globalAuthRule: AuthRule = { allow: public } } # FOR TESTING ONLY!
+
+type AlbumCategory @model {
+  id: ID!
+  title: String!
+  albums: [Album] @hasMany(indexName: "byAlbumCategory" , fields: ["id"])        
+}
+
+type Album @model {
+  albumCategoryId: ID! @index(name: "byAlbumCategory")
+  id: ID!
+  name: String!
+  by: String!
+  numberOfLikes: Int!
+  imageUri: String!
+  artistsHeadline: String!
+  songs: [Song] @hasMany(indexName: "byAlbum" , fields: ["id"])
+  albumCategory: AlbumCategory @hasOne
+}
+
+type Song @model  {
+  albumId: ID! @index(name: "byAlbum" )
+  id: ID! 
+  imageUri: String!
+  uri: String!
+  title: String!
+  artist: String!
+  album: Album @hasOne    
+  }
+

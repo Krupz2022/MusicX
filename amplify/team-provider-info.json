@@ -1,0 +1,20 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-musicx-dev-182143-authRole",
+      "UnauthRoleArn": "arn:aws:iam::025195838560:role/amplify-musicx-dev-182143-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::025195838560:role/amplify-musicx-dev-182143-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-musicx-dev-182143-deployment",
+      "UnauthRoleName": "amplify-musicx-dev-182143-unauthRole",
+      "StackName": "amplify-musicx-dev-182143",
+      "StackId": "arn:aws:cloudformation:us-east-1:025195838560:stack/amplify-musicx-dev-182143/75d6c080-d2e7-11ed-a2a6-0efe77a5c30f",
+      "AmplifyAppId": "dte8imp6d4aup"
+    },
+    "categories": {
+      "api": {
+        "musicx": {}
+      }
+    }
+  }
+}
