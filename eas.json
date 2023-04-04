@@ -3,20 +3,15 @@
     "version": ">= 3.5.2" ,
     "requireCommit": true
   },
-    "build": {
-      "preview": {
-        "android": {
-          "buildType": "apk"
-        }
-      },
-      "preview2": {
-        "android": {
-          "gradleCommand": ":app:assembleRelease"
-        }
-      },
-      "preview3": {
-        "developmentClient": true
-      },
-      "production": {}
-    }
+      "build": {
+        "development": {
+          "developmentClient": true,
+          "distribution": "internal",
+         "ios": {
+            "simulator": true
+          }
+       }
+    
+     }
+  
   }
