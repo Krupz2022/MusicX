@@ -19,14 +19,32 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "infoPlist": {
+        "UIBackgroundModes": [
+          "audio"
+        ]
+      }
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#FFFFFF"
+        "backgroundColor": "#FFFFFF",
+        "useNextNotificationsApi": true,
+        "permissions": [
+          "READ_EXTERNAL_STORAGE",
+          "WRITE_EXTERNAL_STORAGE",
+          "MEDIA_LIBRARY",
+          "MODIFY_AUDIO_SETTINGS",
+          "RECORD_AUDIO",
+          "CAMERA",
+          "ACCESS_COARSE_LOCATION",
+          "ACCESS_FINE_LOCATION",
+          "ACCESS_BACKGROUND_LOCATION",
+          "PLAY_AUDIO_WHILE_SCREEN_OFF"
+        ]
       },
-      "package": "com.serum.musicx"
+      "scheme": "com.serum.musicx"
     },
     "web": {
       "favicon": "./assets/favicon.png"

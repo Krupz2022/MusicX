@@ -20,9 +20,10 @@ const styles = StyleSheet.create({
 
   },
   image: {
-    width: 75,
-    height: 75,
+    width: 50,
+    height: 50,
     marginRight: 10,
+    marginLeft: 5,
   },
   rightContainer: {
     flex: 1,
@@ -32,6 +33,7 @@ const styles = StyleSheet.create({
   nameContainer: {
     flexDirection: 'column',
     //alignItems: 'center',
+    justifyContent: 'center',
     textAlign: 'left',
   },
   iconsContainer: {
@@ -49,6 +51,12 @@ const styles = StyleSheet.create({
   artist: {
     color: 'lightgray',
     fontSize:10,
+  },
+  up: {
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'space-around'
+    
   }
 })
 

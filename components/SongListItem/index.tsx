@@ -1,5 +1,5 @@
 import React, {useContext} from 'react';
-import {Text, Image, View, TouchableWithoutFeedback, TouchableOpacity} from 'react-native';
+import {Text, Image, View, TouchableOpacity} from 'react-native';
 
 
 import styles from './styles';

@@ -15,7 +15,7 @@ import HomeScreen from '../screens/HomeScreen';
 import TabTwoScreen from '../screens/TabTwoScreen';
 import { BottomTabParamList, TabOneParamList, TabTwoParamList } from '../types';
 import AlbumScreen from "../screens/AlbumScreen";
-
+import PlayerScreen from "../screens/PlayerScreen";
 const BottomTab = createBottomTabNavigator<BottomTabParamList>();
 
 export default function BottomTabNavigator() {
@@ -24,9 +24,9 @@ export default function BottomTabNavigator() {
   return (
     <BottomTab.Navigator
       initialRouteName="TabOne"
-      tabBarOptions={{ activeTintColor: Colors[colorScheme].tint }}>
+      screenOptions={{ activeTintColor: Colors[colorScheme].tint }}>
       <BottomTab.Screen
-        name = "Home"
+        name="Home"
         component={TabOneNavigator}
         options={{
           tabBarIcon: ({ color }) => <Entypo name="home" size={30} style={{ marginBottom: -3 }} color={color} />,
@@ -37,20 +37,6 @@ export default function BottomTabNavigator() {
         component={TabTwoNavigator}
         options={{
           tabBarIcon: ({ color }) => <EvilIcons name="search" size={30} style={{ marginBottom: -3 }} color={color} />,
-        }}
-      />
-      <BottomTab.Screen
-        name="Your Library"
-        component={TabTwoNavigator}
-        options={{
-          tabBarIcon: ({ color }) => <Ionicons name="library-outline" size={30} style={{ marginBottom: -3 }} color={color} />,
-        }}
-      />
-      <BottomTab.Screen
-        name="Premium"
-        component={TabTwoNavigator}
-        options={{
-          tabBarIcon: ({ color }) => <FontAwesome5 name="spotify" size={30} style={{ marginBottom: -3 }} color={color} />,
         }}
       />
     </BottomTab.Navigator>
@@ -75,6 +61,12 @@ function TabOneNavigator() {
         component={AlbumScreen}
         options={{ headerTitle: 'Album' }}
       />
+
+      <TabOneStack.Screen
+        name="PlayerScreen"
+        component={PlayerScreen}
+        options={{ headerTitle: 'Player' }}
+      />
     </TabOneStack.Navigator>
   );
 }
@@ -87,7 +79,7 @@ function TabTwoNavigator() {
       <TabTwoStack.Screen
         name="TabTwoScreen"
         component={TabTwoScreen}
-        options={{ headerTitle: 'Tab Two Title' }}
+        options={{ headerTitle: '' }}
       />
     </TabTwoStack.Navigator>
   );
