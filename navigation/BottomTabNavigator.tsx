@@ -17,8 +17,26 @@ import { BottomTabParamList, TabOneParamList, TabTwoParamList } from '../types';
 import AlbumScreen from "../screens/AlbumScreen";
 import PlayerScreen from "../screens/PlayerScreen";
 const BottomTab = createBottomTabNavigator<BottomTabParamList>();
+import { TouchableOpacity, Text, StyleSheet} from 'react-native';
+import { Auth } from 'aws-amplify';
+
+function HeaderRight(props: any) {
+  return (
+    <TouchableOpacity style={styles.button} onPress={props.handleSignOut}>
+      <Text style={{ color: 'white' }}>Sign Out</Text>
+    </TouchableOpacity>
+  );
+}
+
 
 export default function BottomTabNavigator() {
+  const handleSignOut = async () => {
+    try {
+      await Auth.signOut();
+    } catch (error) {
+      console.log('Error signing out:', error);
+    }
+  };
   const colorScheme = useColorScheme();
 
   return (
@@ -30,6 +48,7 @@ export default function BottomTabNavigator() {
         component={TabOneNavigator}
         options={{
           tabBarIcon: ({ color }) => <Entypo name="home" size={30} style={{ marginBottom: -3 }} color={color} />,
+          headerRight: () => <HeaderRight handleSignOut={handleSignOut} />,
         }}
       />
       <BottomTab.Screen
@@ -54,6 +73,8 @@ function TabOneNavigator() {
         name="TabOneScreen"
         component={HomeScreen}
         options={{ headerTitle: '' }}
+
+        
       />
 
       <TabOneStack.Screen
@@ -84,3 +105,17 @@ function TabTwoNavigator() {
     </TabTwoStack.Navigator>
   );
 }
+
+const styles = StyleSheet.create({
+  button: {
+    paddingHorizontal: 12,
+    paddingVertical: 6,
+    borderRadius: 4,
+    borderWidth: 2,
+    borderColor: 'white',
+    alignSelf: 'flex-end',
+    marginTop: 20,
+    marginRight: 20,
+  },
+ 
+});

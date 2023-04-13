@@ -9,8 +9,12 @@ import Navigation from './navigation';
 import PlayerWidgets from './components/PlayerWidget';
 import MainPlayerScreen from './components/mainPlayerScreen/native'
 
-import { Amplify } from 'aws-amplify';
+import { Amplify , Auth} from 'aws-amplify';
 import awsconfig from './src/aws-exports';
+import { withAuthenticator , AmplifyTheme} from 'aws-amplify-react-native';
+//const AppWithAuth = withAuthenticator(App, false)
+
+
 
 Amplify.configure(awsconfig)
 
@@ -21,7 +25,9 @@ import { createStackNavigator } from '@react-navigation/stack';
 
 const Stack = createStackNavigator();
 
-export default function App() {
+ 
+function App() {
+  //Auth.signOut();
   const [isAudioEnabled, setIsAudioEnabled] = useState(false);
 
   useEffect(() => {
@@ -67,3 +73,44 @@ export default function App() {
     );
   }
 }
+
+const signUpConfig = {
+  header: "My Customized Sign Up",
+  hideAllDefaults: true,
+  signUpFields: [
+    {
+      label: "Full name",
+      key: "name",
+      required: true,
+      displayOrder: 1,
+      type: "string",
+    },
+    {
+      label: "Email",
+      key: "email",
+      required: true,
+      displayOrder: 2,
+      type: "string",
+    },
+    {
+      label: "Username",
+      key: "preferred_username",
+      required: true,
+      displayOrder: 3,
+      type: "string",
+    },
+    {
+      label: "Password",
+      key: "password",
+      required: true,
+      displayOrder: 4,
+      type: "password",
+    },
+  ],
+};
+
+const customTheme = {...AmplifyTheme}
+
+export default withAuthenticator(App, {signUpConfig, theme: customTheme}); 
+
+
