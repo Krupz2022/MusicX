@@ -3,6 +3,7 @@ import {
   Entypo,
   EvilIcons,
   MaterialCommunityIcons,
+  MaterialIcons,
   FontAwesome5
 } from '@expo/vector-icons';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
@@ -17,7 +18,7 @@ import { BottomTabParamList, TabOneParamList, TabTwoParamList } from '../types';
 import AlbumScreen from "../screens/AlbumScreen";
 import PlayerScreen from "../screens/PlayerScreen";
 const BottomTab = createBottomTabNavigator<BottomTabParamList>();
-import { TouchableOpacity, Text, StyleSheet} from 'react-native';
+import { TouchableOpacity, Text, StyleSheet } from 'react-native';
 import { Auth } from 'aws-amplify';
 
 function HeaderRight(props: any) {
@@ -41,7 +42,7 @@ export default function BottomTabNavigator() {
 
   return (
     <BottomTab.Navigator
-      initialRouteName="TabOne"
+      initialRouteName="Play"
       screenOptions={{ activeTintColor: Colors[colorScheme].tint }}>
       <BottomTab.Screen
         name="Home"
@@ -49,6 +50,13 @@ export default function BottomTabNavigator() {
         options={{
           tabBarIcon: ({ color }) => <Entypo name="home" size={30} style={{ marginBottom: -3 }} color={color} />,
           headerRight: () => <HeaderRight handleSignOut={handleSignOut} />,
+        }}
+      />
+      <BottomTab.Screen
+        name="Play"
+        component={PlayerScreen}
+        options={{
+          tabBarIcon: ({ color }) => <MaterialIcons name="play-circle-filled" size={30} style={{ marginBottom: -3 }} color={color} />,
         }}
       />
       <BottomTab.Screen
@@ -74,7 +82,7 @@ function TabOneNavigator() {
         component={HomeScreen}
         options={{ headerTitle: '' }}
 
-        
+
       />
 
       <TabOneStack.Screen
@@ -117,5 +125,5 @@ const styles = StyleSheet.create({
     marginTop: 20,
     marginRight: 20,
   },
- 
+
 });

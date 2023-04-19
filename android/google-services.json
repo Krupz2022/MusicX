@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "324934655623",
+    "project_id": "muscx-ad3df",
+    "storage_bucket": "muscx-ad3df.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:324934655623:android:f631751d93b06fe9ea6222",
+        "android_client_info": {
+          "package_name": "com.serum.musicx"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "324934655623-c9j4d1anjsrlt28io98r6dr0n6mv59lc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDoiDMicYsgrSqs7YK4iMj4QSqdNFZfMZU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "324934655623-c9j4d1anjsrlt28io98r6dr0n6mv59lc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

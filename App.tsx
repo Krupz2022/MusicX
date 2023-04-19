@@ -64,8 +64,6 @@ function App() {
         }}>
           <Navigation colorScheme={colorScheme} />
           <StatusBar />
-          <PlayerWidgets />
-
         </AppContext.Provider>
       </SafeAreaProvider>
 
